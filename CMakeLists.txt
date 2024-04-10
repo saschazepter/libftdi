@@ -30,6 +30,8 @@ if(NOT PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
   file(GENERATE OUTPUT .gitignore CONTENT "*")
 endif()
 
+include(GNUInstallDirs)
+
 add_definitions(-Wall)
 
 include(CMakeOptions.txt)
@@ -170,6 +172,9 @@ if(${UNIX})
 endif(${UNIX})
 if(${WIN32})
   set(libdir      ${CMAKE_INSTALL_PREFIX}/bin)
+  if(STATICLIBS)
+    list(APPEND libdir ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
+  endif()
 endif(${WIN32})
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libftdi1.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libftdi1.pc @ONLY)
