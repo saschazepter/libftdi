@@ -2918,8 +2918,12 @@ static unsigned char type2bit(unsigned char type, enum ftdi_chip_type chip)
             }
         }
         case TYPE_230X: /* FT230X is only UART */
+        case TYPE_AM:
+        case TYPE_BM:
+        case TYPE_4232H:
         default: return 0;
     }
+    /* fallback */
     return 0;
 }
 
@@ -4625,7 +4629,7 @@ int ftdi_write_eeprom_location(struct ftdi_context *ftdi, int eeprom_addr,
     switch (ftdi->type)
     {
         case TYPE_BM:
-        case  TYPE_2232C:
+        case TYPE_2232C:
             chip_type_location = 0x14;
             break;
         case TYPE_2232H:
@@ -4635,6 +4639,9 @@ int ftdi_write_eeprom_location(struct ftdi_context *ftdi, int eeprom_addr,
         case TYPE_232H:
             chip_type_location = 0x1e;
             break;
+        case TYPE_AM:
+        case TYPE_R:
+        case TYPE_230X:
         default:
             ftdi_error_return(-4, "Device can't access unprotected area");
     }
