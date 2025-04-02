@@ -9,7 +9,6 @@
 .deps/
 .libs/
 .kdev4/
-build/
 
 # kdevelop
 *.kdevelop.pcs

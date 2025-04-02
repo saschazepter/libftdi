@@ -26,6 +26,11 @@ set(CMAKE_COLOR_MAKEFILE ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+if(NOT PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
+  # Auto-create a .gitignore in the out-of-source build directory.
+  file(GENERATE OUTPUT .gitignore CONTENT "*")
+endif()
+
 add_definitions(-Wall)
 
 include(CMakeOptions.txt)
