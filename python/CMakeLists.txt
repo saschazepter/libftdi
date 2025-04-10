@@ -1,9 +1,3 @@
-# swig_add_library behavior changed in cmake 3.13 to no longer set
-# SWIG_MODULE_<target>_REAL_NAME, so restore the old behavior.
-if ( POLICY CMP0078 )
-  cmake_policy( SET CMP0078 OLD )
-endif ()
-
 # workaround for cmake bug #0013449
 if ( NOT DEFINED CMAKE_FIND_ROOT_PATH OR NOT CMAKE_VERSION VERSION_LESS 3.0.0 )
   find_package ( SWIG REQUIRED )
@@ -27,20 +21,16 @@ if ( DOCUMENTATION )
   # manually add dependency for new cmake / swig versions
   set_property(SOURCE ftdi1.i PROPERTY DEPENDS doc_i)
 endif()
-if(NOT CMAKE_VERSION VERSION_LESS 3.8.0)
-  swig_add_library ( ftdi1 LANGUAGE python SOURCES ftdi1.i )
-else ()
-  swig_add_module ( ftdi1 python ftdi1.i )
-endif()
-swig_link_libraries ( ftdi1 ftdi1 )
+swig_add_library ( pyftdi1 LANGUAGE python SOURCES ftdi1.i )
+swig_link_libraries ( pyftdi1 ftdi1 )
 
 if ( LINK_PYTHON_LIBRARY )
-  swig_link_libraries ( ftdi1 ${PYTHON_LIBRARIES} )
+  swig_link_libraries ( pyftdi1 ${PYTHON_LIBRARIES} )
 elseif( APPLE )
-  set_target_properties ( ${SWIG_MODULE_ftdi1_REAL_NAME} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup" )
+  set_target_properties ( pyftdi1 PROPERTIES LINK_FLAGS "-undefined dynamic_lookup" )
 endif ()
 
-set_target_properties ( ${SWIG_MODULE_ftdi1_REAL_NAME} PROPERTIES NO_SONAME ON )
+set_target_properties ( pyftdi1 PROPERTIES NO_SONAME ON )
 
 execute_process ( COMMAND ${PYTHON_EXECUTABLE} -c "import sysconfig; print( sysconfig.get_path( 'platlib', vars={'platbase': '${CMAKE_INSTALL_PREFIX}'} ) )"
                   OUTPUT_VARIABLE _ABS_PYTHON_MODULE_PATH
@@ -52,7 +42,7 @@ file ( RELATIVE_PATH _REL_PYTHON_MODULE_PATH ${CMAKE_INSTALL_PREFIX} ${_ABS_PYTH
 set ( PYTHON_MODULE_PATH ${_REL_PYTHON_MODULE_PATH} )
 
 install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/ftdi1.py DESTINATION ${PYTHON_MODULE_PATH} )
-install ( TARGETS ${SWIG_MODULE_ftdi1_REAL_NAME} LIBRARY DESTINATION ${PYTHON_MODULE_PATH} )
+install ( TARGETS pyftdi1 LIBRARY DESTINATION ${PYTHON_MODULE_PATH} )
 
 if ( DOCUMENTATION )
   # Run doxygen to only generate the xml
@@ -75,7 +65,7 @@ if ( DOCUMENTATION )
     COMMENT "Python API bindings documentation"
     DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ftdi1_doc.i
   )
-  add_dependencies( ${SWIG_MODULE_ftdi1_REAL_NAME} doc_i )
+  add_dependencies( pyftdi1 doc_i )
 
 endif ( DOCUMENTATION )
 
