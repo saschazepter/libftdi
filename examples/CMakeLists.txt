@@ -38,7 +38,6 @@ endif(NOT MINGW)
 # libftdi++ examples
 if( FTDIPP )
   include_directories(BEFORE ${PROJECT_SOURCE_DIR}/ftdipp
-    ${Boost_INCLUDE_DIRS}
   )
 
   # Target

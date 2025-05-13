@@ -8,8 +8,6 @@ include_directories(BEFORE ${CMAKE_CURRENT_BINARY_DIR}
   ${PROJECT_SOURCE_DIR}/src
 )
 
-include_directories(${Boost_INCLUDE_DIRS})
-
 # Shared library
 add_library(ftdipp1 SHARED ${cpp_sources})
 
@@ -20,7 +18,7 @@ set_target_properties(ftdipp1 PROPERTIES VERSION ${VERSION_FIXUP}.${MINOR_VERSIO
 set_target_properties(ftdipp1 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 # Dependencies
-target_link_libraries(ftdipp1 ftdi1 ${LIBUSB_LIBRARIES} ${BOOST_LIBRARIES})
+target_link_libraries(ftdipp1 ftdi1 ${LIBUSB_LIBRARIES})
 
 install ( TARGETS ftdipp1
           RUNTIME DESTINATION bin
