@@ -30,7 +30,7 @@ int main(int argc, char **argv)
     struct ftdi_context *ftdi;
     int do_read = 0;
     int do_write = 0;
-    int i, f, retval;
+    int i, f, retval = EXIT_SUCCESS;
 
     if ((ftdi = ftdi_new()) == 0)
     {
