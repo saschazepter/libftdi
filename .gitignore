@@ -57,3 +57,6 @@ tags
 # clangd specific files
 .cache
 compile_commands.json
+
+# VSCode
+.vscode
