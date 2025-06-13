@@ -36,7 +36,12 @@ configure_file(
 )
 
 add_executable(ftdi_eeprom main.c)
-target_link_libraries(ftdi_eeprom ftdi1 ${CONFUSE_LIBRARIES})
+if (NOT SHAREDLIBS AND STATICLIBS)
+    target_link_libraries(ftdi_eeprom ftdi1-static)
+else()
+    target_link_libraries(ftdi_eeprom ftdi1)
+endif ()
+target_link_libraries(ftdi_eeprom ${CONFUSE_LIBRARIES})
 if (LIBINTL_FOUND)
     target_link_libraries(ftdi_eeprom ${LIBINTL_LIBRARIES})
 endif ()
