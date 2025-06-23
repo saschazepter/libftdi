@@ -8,12 +8,11 @@ else ()
         set(SWIG_FOUND TRUE)
     endif ()
 endif ()
-find_package(PythonInterp REQUIRED)
-find_package(PythonLibs REQUIRED)
+find_package(Python3 COMPONENTS Interpreter Development)
 
 include(UseSWIG)
 include_directories(BEFORE ${PROJECT_SOURCE_DIR}/src)
-include_directories(${PYTHON_INCLUDE_DIRS})
+include_directories(${Python3_INCLUDE_DIRS})
 link_directories(${CMAKE_CURRENT_BINARY_DIR}/../src)
 
 if (DOCUMENTATION)
@@ -32,7 +31,7 @@ endif ()
 
 set_target_properties(pyftdi1 PROPERTIES NO_SONAME ON)
 
-execute_process(COMMAND ${PYTHON_EXECUTABLE} -c "import sysconfig; print( sysconfig.get_path( 'platlib', vars={'platbase': '${CMAKE_INSTALL_PREFIX}'} ) )"
+execute_process(COMMAND ${Python3_EXECUTABLE} -c "import sysconfig; print( sysconfig.get_path( 'platlib', vars={'platbase': '${CMAKE_INSTALL_PREFIX}'} ) )"
         OUTPUT_VARIABLE _ABS_PYTHON_MODULE_PATH
         OUTPUT_STRIP_TRAILING_WHITESPACE)
 
@@ -55,7 +54,7 @@ if (DOCUMENTATION)
 
     # generate .i from doxygen .xml
     add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/ftdi1_doc.i
-            COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/doxy2swig.py -n
+            COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/doxy2swig.py -n
             ${PROJECT_BINARY_DIR}/doc/xml/ftdi_8c.xml
             ${CMAKE_CURRENT_BINARY_DIR}/ftdi1_doc.i
             COMMENT "Generating ftdi1_doc.i from ftdi_8c.xml"
