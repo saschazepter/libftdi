@@ -46,11 +46,6 @@ endif (${CMAKE_BUILD_TYPE} STREQUAL Debug)
 find_package(LibUSB REQUIRED)
 include_directories(${LIBUSB_INCLUDE_DIR})
 
-# Find Boost
-if (BUILD_TESTS)
-    find_package(Boost REQUIRED)
-endif ()
-
 # Set components
 set(CPACK_COMPONENTS_ALL sharedlibs staticlibs headers)
 set(CPACK_COMPONENT_SHAREDLIBS_DISPLAY_NAME "Shared libraries")
