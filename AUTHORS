@@ -3,7 +3,7 @@ Main developers:
   Intra2net AG <opensource@intra2net.com>
 
 Contributors in alphabetical order,
-see Changelog for full details:
+see git history and ChangeLog for full details:
 
   Adam Malinowski <amalinowski75@gmail.com>
   Alain Abbas <aa@libertech.fr>
@@ -15,10 +15,12 @@ see Changelog for full details:
   Arnim Läuger <arnim.laeuger@gmx.net>
   Aurelien Jarno <aurelien@aurel32.net>
   Benjamin Vanheuverzwijn <bvanheu@gmail.com>
+  Chris Johnson <chris.a.johnson@garmin.com>
   Chris Morgan <chmorgan@gmail.com>
   Chris Zeh <chris.w.zeh@gmail.com>
   Claudio Lanconelli <claudiolanconelli@gmail.com>
   Clifford Wolf <clifford@clifford.at>
+  Dan Horák <dan@danny.cz>
   Dan Dedrick <dan.dedrick@gmail.com>
   Daniel Kirkham <dk2@kirkham.id.au>
   David Challis <dchallis@qsimaging.com>
@@ -31,6 +33,7 @@ see Changelog for full details:
   Eugene Hutorny <eugene@hutorny.in.ua>
   Evan Nemerson <evan@coeus-group.com>
   Evgeny Sinelnikov <sin@geoft.ru>
+  Fabian Vogt <fvogt@suse.de>
   Fabrice Fontaine <fontaine.fabrice@gmail.com>
   Fahrzin Hemmati <fahhem@gmail.com>
   Flynn Marquardt <ftdi@flynnux.de>
@@ -52,6 +55,7 @@ see Changelog for full details:
   Mark Hämmerling <mail@markh.de>
   Matthias Janke <janke@physi.uni-heidelberg.de>
   Matthias Kranz <matthias@hcilab.org>
+  Matthias Klein <matthias@extraklein.de>
   Matthias Richter <mail.to.mr@gmx.de>
   Matthijs ten Berge <m.h.tenberge@alumnus.utwente.nl>
   Max <max@koeln.ccc.de>
@@ -74,6 +78,7 @@ see Changelog for full details:
   Rolf Fiedler <derRolf@gmx-topmail.de>
   Roman Lapin <lampus.lapin@gmail.com>
   Salvador Eduardo Tropea <salvador@inti.gob.ar>
+  Shawn Hoffman <business@symbrkrs.com>
   Stephan Linz <linz@li-pro.net>
   Steven Turner <steven.turner@ftdichip.com>
   Tarek Heiland <tarek@illimitable.com>
@@ -87,6 +92,7 @@ see Changelog for full details:
   Uwe Bonnes <bon@elektron.ikp.physik.tu-darmstadt.de>
   Vladimir Yakovlev <nagos@inbox.ru>
   Wilfried Holzke <libftdi@holzke.net>
+  William S Fulton <wsf@fultondesigns.co.uk>
   Xiaofan Chen <xiaofanc@gmail.com>
   Yegor Yefremov <yegorslists@googlemail.com>
   Yi-Shin Li <ysli@araisrobo.com>
