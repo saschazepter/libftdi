@@ -1,3 +1,41 @@
+New in 1.6rc1 - 2026-01-XX
+-----------------------
+* New ftdi_set_module_detach_mode() API function
+* ftdi_eeprom / eeprom handling:
+  * Fix checksum calculation for FT230X series
+  * Support readout of "user_data_addr" value
+  * Remove legacy EEPROM fields from FT4232H
+  * Don't set EEPROM serial when it's not used
+  * ftdi_eeprom_initdefaults() now takes const arguments
+  * Don't spam stderr when flashing FT232H eeprom
+  * EEPROM decoder: Show C/D channel mode for FT4232, B channel mode for FT2232C
+* CMake build system:
+  * Bump minimal required version to 3.15
+  * Fix building as a subproject
+  * Add SHAREDLIBS option
+  * Fix multiarch support
+  * Rework findlibusb module
+  * Fix static build with libusb and -latomic
+  * Modernize Boost detection for the unit tests when using CMake 3.30+
+* Python wrapper:
+  * Update for SWIG 4.3
+  * Rework Python interpreter and development files detection
+  * Fix race during build of python bindings causing random build failures
+  * Move from distutils to sysconfig
+* C++ wrapper: Use std::unique_ptr, get rid of the Boost dependency
+* MSVC/Windows build fixes:
+  * Fix building static library on Windows/MSVC
+  * Fix shadowed variable warnings
+  * Fix warnings by using all enum values in case statements
+  * Quiet uninteresting warnings
+* Various bug fixes and code improvements:
+  * Fix uninitialized variable warning in ftdi_read_eeprom_location()
+  * Fix GCC fall-through warnings
+  * Fix ftdi_readstream() timeout setting
+  * Don't error out when optional strings are missing
+* Add .editorconfig file for consistent code style
+* Ignore various IDE temp files (JetBrains, VSCode, clangd)
+
 New in 1.5 - 2020-07-07
 -----------------------
 * Implement tc[io]flush methods & deprecate broken purge_buffers methods
