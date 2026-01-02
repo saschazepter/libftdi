@@ -3078,13 +3078,13 @@ int ftdi_eeprom_build(struct ftdi_context *ftdi)
         case TYPE_2232H:
         case TYPE_4232H:
             i += 2;
-			/* Fall through*/
+            /* Fall through */
         case TYPE_R:
             i += 2;
-			/* Fall through*/
+            /* Fall through */
         case TYPE_2232C:
             i += 2;
-			/* Fall through*/
+            /* Fall through */
         case TYPE_AM:
         case TYPE_BM:
             i += 0x94;
@@ -3479,20 +3479,20 @@ int ftdi_eeprom_build(struct ftdi_context *ftdi)
     {
         case TYPE_230X:
             free_start += 2;
-			/* Fall through*/
+            /* Fall through */
         case TYPE_232H:
             free_start += 6;
-			/* Fall through*/
+            /* Fall through */
         case TYPE_2232H:
         case TYPE_4232H:
             free_start += 2;
-			/* Fall through*/
+            /* Fall through */
         case TYPE_R:
             free_start += 2;
-			/* Fall through*/
+            /* Fall through */
         case TYPE_2232C:
             free_start++;
-			/* Fall through*/
+            /* Fall through */
         case TYPE_AM:
         case TYPE_BM:
             free_start += 0x14;
