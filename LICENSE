@@ -1,7 +1,7 @@
 The C library "libftdi1" is distributed under the
-GNU Library General Public License version 2.
+GNU Lesser General Public License version 2.1.
 
-A copy of the GNU Library General Public License (LGPL) is included
+A copy of the GNU Lesser General Public License (LGPL) is included
 in this distribution, in the file COPYING.LIB.
 
 ----------------------------------------------------------------------
