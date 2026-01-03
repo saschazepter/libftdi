@@ -6,6 +6,8 @@ in this distribution, in the file COPYING.LIB.
 
 ----------------------------------------------------------------------
 
+The "ftdi_eeprom" tool is distributed under the GNU General Public License version 2.
+
 The C++ wrapper "ftdipp1" is distributed under the GNU General
 Public License version 2 (with a special exception described below).
 
