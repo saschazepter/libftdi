@@ -88,6 +88,7 @@ public:
     int DEPRECATED(flush)(int mask = Input|Output);
     int tcflush(int mask = Input|Output);
     int set_interface(enum ftdi_interface interface);
+    int set_module_detach_mode(enum ftdi_module_detach_mode mode);
     void set_usb_device(struct libusb_device_handle *dev);
 
     /* Line manipulators */

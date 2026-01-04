@@ -200,6 +200,11 @@ int Context::set_interface(enum ftdi_interface interface)
     return ftdi_set_interface(d->ftdi, interface);
 }
 
+int Context::set_module_detach_mode(enum ftdi_module_detach_mode mode)
+{
+    return ftdi_set_module_detach_mode(d->ftdi, mode);
+}
+
 void Context::set_usb_device(struct libusb_device_handle *dev)
 {
     ftdi_set_usbdev(d->ftdi, dev);
