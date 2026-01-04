@@ -35,6 +35,12 @@ New in 1.6rc1 - 2026-01-XX
   * Don't error out when optional strings are missing
 * Add .editorconfig file for consistent code style
 * Ignore various IDE temp files (JetBrains, VSCode, clangd)
+* License clarifications:
+  * Fix wrong LGPL version in the "LICENSE" readme:
+    * Clarify main libftdi library is LGPL v2.1 only
+    * Clarify ftdi_eeprom is GPL v2 only
+  * SPDX license tags added in 2019 were already correct
+  * Update COPYING.LIB to LGPL v2.1 after clarifications
 
 New in 1.5 - 2020-07-07
 -----------------------
